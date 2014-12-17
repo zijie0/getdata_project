@@ -16,16 +16,17 @@ The following files are available for the train and test data. Their description
 - 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
-##Output Data
+## Output Data
 
 The resulting tidy_data.txt dataset includes mean and standard deviation variables for the following original variables:
-> tBodyAcc, tGravityAcc, tBodyAccJerk, tBodyGyro, tBodyGyroJerk, tBodyAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag, fBodyAcc, fBodyAccJerk, fBodyGyro, fBodyAccMag, fBodyBodyAccJerkMag, fBodyBodyGyroMag, fBodyBodyGyroJerkMag. All three X, Y, Z directions are included.
+> tBodyAcc, tGravityAcc, tBodyAccJerk, tBodyGyro, tBodyGyroJerk, tBodyAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag, fBodyAcc, fBodyAccJerk, fBodyGyro, fBodyAccMag, fBodyBodyAccJerkMag, fBodyBodyGyroMag, fBodyBodyGyroJerkMag.
+All three X, Y, Z directions are included.
 The above variables where choosen as they included either *mean* or *std* in their original names.
 
 
 ## Transformations
 
-The script, run_analysis.R, does the following tings:
+The script `run_analysis.R` does the following things:
 - Load the various files which make-up the UCI dataset
 - Merges the three test and three train files into a single data table, setting textual columns heading where possible
 - Creates a smaller second dataset, containing only mean and std variables
