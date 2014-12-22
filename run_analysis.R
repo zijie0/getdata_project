@@ -36,7 +36,7 @@ means <- aggregate(as.matrix(mean.std.data[,3:81]),
                    as.list(mean.std.data[,1:2]), FUN=mean)
 
 # Save the resulting dataset
-write.table(means, file="tidy_data.txt")
+write.table(means, file="tidy_data.txt", row.name=FALSE)
 
 # Output final dataset
 means
