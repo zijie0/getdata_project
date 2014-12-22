@@ -9,10 +9,6 @@ One of the most exciting areas in all of data science right now is wearable comp
 Here are the data for the project: 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-## Dependencies
-
-This script `run_analysis.R` depends on `reshape2` and `data.table` libraries. You can use `install.packages` command to install them if needed.
-
 ## How to use
 
 Please put the data source in your working directory and run the script in your R environment. The tidy data set will be save in `tidy_data.txt` file.

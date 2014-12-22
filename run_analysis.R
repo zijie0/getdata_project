@@ -1,5 +1,3 @@
-library(reshape2)
-
 # Load various datasets
 test.subject <- read.table("UCI HAR Dataset/test/subject_test.txt")
 test.x <- read.table("UCI HAR Dataset/test/X_test.txt")
@@ -18,7 +16,9 @@ colnames(subject) <- "subject"
 
 # Merge the test and train labels, applying the text labels
 label <- rbind(test.y, train.y)
-label <- merge(label, activity.labels)[,2]
+label[,1] <- as.factor(label[,1])
+levels(label[,1]) <- as.vector(activity.labels[,2])
+colnames(label) <- "Activity"
 
 # Merge the test and train main datasets, applying the text headings
 data <- rbind(test.x, train.x)
@@ -32,11 +32,11 @@ col_idx <- grep("-mean|-std", colnames(data))
 mean.std.data <- data[,c(1,2,col_idx)]
 
 # Compute the means, grouped by subject/label
-melted = melt(mean.std.data, id.var = c("subject", "label"))
-means = dcast(melted , subject + label ~ variable, mean)
+means <- aggregate(as.matrix(mean.std.data[,3:81]), 
+                   as.list(mean.std.data[,1:2]), FUN=mean)
 
 # Save the resulting dataset
-write.table(means, file="tidy_data.txt", row.name=FALSE)
+write.table(means, file="tidy_data.txt")
 
 # Output final dataset
 means
